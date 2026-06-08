@@ -37,9 +37,9 @@ public class IpAddress {
         String domain = request.getServerName();     // localhost or yourdomain.com
         int port = request.getServerPort();          // 8080 or 443
 
-        String baseUrl = domain + ":" + port;
-        if (domain.contains("cloudflare")) {
-            baseUrl = domain;
+        String baseUrl = "ws://" + domain + ":" + port;
+        if (domain.contains("cloudflare") || domain.contains("render")) {
+            baseUrl = "wss://" + domain;
         }
         System.out.println("Running on: " + baseUrl);
         return baseUrl;

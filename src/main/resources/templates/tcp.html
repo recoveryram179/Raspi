@@ -324,7 +324,7 @@
     }
 
     /* ── WebSocket ── */
-    const WS_URL = `ws://[[${base_url}]]/ws/chat`;
+    const WS_URL = `[[${base_url}]]/ws/chat`;
     wsUrl.textContent = WS_URL;
 
     let socket, reconnectTimer;

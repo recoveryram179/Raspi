@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Constants {
+    public static String password = null;
     public static String base_url = "";
 
     public static String BASE_DIR = "uploads";

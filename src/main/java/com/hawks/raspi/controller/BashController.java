@@ -5,10 +5,7 @@ import com.hawks.raspi.helpers.IpAddress;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
@@ -18,11 +15,23 @@ import java.util.HashMap;
 @RequestMapping(value = "bash")
 public class BashController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/ui")
+    @RequestMapping(method = RequestMethod.GET, value = "/auth")
     ModelAndView index(HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("bash");
-        mav.addObject("url", IpAddress.getDomain(request) + "bash");
+        ModelAndView mav = new ModelAndView("password");
+        mav.addObject("action", "/bash/ui?");
         return mav;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/ui")
+    ModelAndView index2(HttpServletRequest request, @RequestParam("password") String password) {
+        if (Constants.password.equals(password)) {
+            ModelAndView mav = new ModelAndView("bash");
+            mav.addObject("url", IpAddress.getDomain(request) + "bash");
+            return mav;
+        } else {
+            ModelAndView mav = new ModelAndView("error");
+            return mav;
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST)

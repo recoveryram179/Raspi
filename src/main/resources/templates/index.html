@@ -383,35 +383,35 @@
 <div class="cards">
 
     <!-- BASH card -->
-    <a class="card bash" th:href="@{${base_url} + 'bash/ui'}" target="_blank" rel="noopener">
+    <a class="card bash" th:href="@{${base_url} + 'bash/auth'}" target="_blank" rel="noopener">
         <div class="card-corner"></div>
         <div class="icon-wrap">⚡</div>
-        <div class="service-tag">bash · /ui</div>
+        <div class="service-tag">bash · /auth</div>
         <div class="card-title">Bash Service</div>
-        <div class="card-url">[[${base_url}]]bash/ui</div>
+        <div class="card-url">[[${base_url}]]bash/auth</div>
         <div class="card-desc">Shell execution endpoint. Run commands, scripts, and interact with the system shell over
             HTTP.
         </div>
         <div class="go-btn">
             Open service <span class="arrow">→</span>
         </div>
-        <button class="copy-btn" title="Copy URL" th:onclick="copyURL(event, [[${base_url}]] + 'bash/ui')">⎘</button>
+        <button class="copy-btn" title="Copy URL" th:onclick="copyURL(event, [[${base_url}]] + 'bash/auth')">⎘</button>
     </a>
 
     <!-- TCP card -->
-    <a class="card tcp" th:href="@{${base_url} + 'tcp/ui'}" target="_blank" rel="noopener">
+    <a class="card tcp" th:href="@{${base_url} + 'tcp/auth'}" target="_blank" rel="noopener">
         <div class="card-corner"></div>
         <div class="icon-wrap">🔌</div>
-        <div class="service-tag">tcp · /ui</div>
+        <div class="service-tag">tcp · /auth</div>
         <div class="card-title">TCP Service</div>
-        <div class="card-url">[[${base_url}]]tcp/ui</div>
+        <div class="card-url">[[${base_url}]]tcp/auth</div>
         <div class="card-desc">TCP socket endpoint. Manage connections, test network routes, and monitor socket-level
             communication.
         </div>
         <div class="go-btn">
             Open service <span class="arrow">→</span>
         </div>
-        <button class="copy-btn" title="Copy URL" th:onclick="copyURL(event, [[${base_url}]] + 'tcp/ui')">⎘</button>
+        <button class="copy-btn" title="Copy URL" th:onclick="copyURL(event, [[${base_url}]] + 'tcp/auth')">⎘</button>
     </a>
 
 </div>

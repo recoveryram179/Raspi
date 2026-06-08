@@ -24,11 +24,24 @@ public class TcpController {
     // Views
     // -------------------------------------------------------------------------
 
-    @GetMapping("/ui")
-    public ModelAndView index(HttpServletRequest request) {
-        ModelAndView mav = new ModelAndView("tcp");
-        mav.addObject("base_url", IpAddress.getWebSocket(request));
+
+    @RequestMapping(method = RequestMethod.GET, value = "/auth")
+    ModelAndView index(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView("password");
+        mav.addObject("action", "/tcp/ui?");
         return mav;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/ui")
+    ModelAndView index2(HttpServletRequest request, @RequestParam("password") String password) {
+        if (Constants.password.equals(password)) {
+            ModelAndView mav = new ModelAndView("tcp");
+            mav.addObject("base_url", IpAddress.getWebSocket(request));
+            return mav;
+        } else {
+            ModelAndView mav = new ModelAndView("error");
+            return mav;
+        }
     }
 
     // -------------------------------------------------------------------------
