@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 
 public class Constants {
     public static String password = null;
-    public static String base_url = "";
+    public static String base_url = "https://raspi-2slp.onrender.com/";
 
     public static String BASE_DIR = "uploads";
     public static String IMAGE_DIR = BASE_DIR + "/images/";

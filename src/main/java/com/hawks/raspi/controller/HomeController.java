@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping(value = "")
 public class HomeController {
@@ -29,6 +31,14 @@ public class HomeController {
             return "done";
         }
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/alive")
+    public HashMap<String, Object> alive(HttpServletRequest request) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("status", 200);
+        return map;
+    }
+
 
 }
 
