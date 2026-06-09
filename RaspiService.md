@@ -53,6 +53,38 @@ sudo journalctl -u raspi -f
 or
 journalctl -u raspi -f -b
 
+---------------------------------------------
+# this always call report api to inform the monitor
+
+sudo nano /etc/systemd/system/raspi_online.service  
+---------------------------------------------------------
+    [Unit]
+    Description=Spring Boot App
+    After=network.target
+
+    [Service]
+    User=ram
+    WorkingDirectory=/home/ram
+    ExecStart=/usr/bin/curl -X POST "https://monitor-q5sr.onrender.com/alive/report" \ -d "name=Raspi5"
+    SuccessExitStatus=143
+    Restart=always
+    RestartSec=5
+    
+    
+    [Install]
+    WantedBy=multi-user.target
+------------------------------------------
+# to add service
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable raspi_online
+
+
+# start service
+sudo systemctl start raspi_online
+
+# restart service
+sudo systemctl restart raspi_online
 
 
 ////////////////////////////////////////////////////////////////
