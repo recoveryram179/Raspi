@@ -41,4 +41,5 @@ src/main/resources/templates/test.html
 src/main/resources/static/hls/
 git_tokken.txt
 build/
+uploads/
 
